@@ -23,6 +23,8 @@
 
 !/Pengumpulan/
 !/Pengumpulan/**
+
+# gambar/asetnya
 xLain-Lain/*
-!xLain-Lain/img/
+!xLain-Lain/img
 xLain-Lain/kebutuhan_kasus/

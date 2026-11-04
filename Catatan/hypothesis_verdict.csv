@@ -1,0 +1,11 @@
+,fitur_terbaik,LGBM_dRMSE%,LGBM_DM_p,OLS_dRMSE_terbaik%,putusan
+H1 (naif): VRP proxy = VIX terskala - RV,vix_over_rv22,-3.5095633282237526,0.12272038572148115,-3.8681422329040593,terdukung sebagian
+H1 (revisi): Fear Gap ter-standarisasi,vrp_z126,-4.96751592337481,0.00316141128398832,-3.288752632264269,TERDUKUNG
+H2 (awal): RSI = z kurs x (1 - persentil spread),rsi,-1.9214179169374956,0.13800831780035752,-2.37227467462815,terdukung sebagian
+H2 (kurs saja): guncangan depresiasi rupiah,usd_ret5,-4.3940368011998965,0.009651331404597896,-2.770076771038632,TERDUKUNG
+H2 (carry): penyempitan selisih bunga,rsi2,-1.7161776609137647,0.2471865844720088,-1.4292059269142232,terdukung sebagian
+H3: rasio RV5/RV22 (mean reversion),rv_ratio_5_22,-0.6139270756571058,0.23136816950055838,-0.3928190300036327,terdukung sebagian
+H4: asimetri / leverage effect,dd60_vol,-7.416214055060055,0.03763270996754405,-5.577096808927761,TERDUKUNG
+H5: guncangan emas dan minyak,gold_ret5,-2.6443188091367142,0.02611344745026571,-1.3030830983017383,TERDUKUNG
+H6: percepatan dan level ketakutan global,sp_ret5,-4.753621392596152,0.02501566860144632,-3.048719168444991,TERDUKUNG
+H7: hari sejak perubahan suku bunga BI,bi_days_since,-0.6836926450000336,0.5786331854567297,0.18948071797439958,terdukung sebagian

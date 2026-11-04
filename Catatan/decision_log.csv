@@ -1,0 +1,17 @@
+#,Temuan,Keputusan / tindakan,Dieksekusi di
+D01,Y_t = std sampel (ddof=1) dari return sederhana IHSG hari t+1..t+5; cocok persis 99.87% (baris teramati) dan 99.92% (kalender penuh),Jadikan definisi resmi; dokumentasikan pada tahap final dan ppt,"Tahap 3, PPT"
+D02,"Y_(t-1)...Y_(t-4) memuat return setelah t (korelasi 0,88 s.d. 0,55 adalah korelasi semu karena bocor)",Dilarang sebagai fitur. Hanya Y_(t-5) dan lebih lama; tambahkan uji otomatis,Tahap 3
+D03,Baseline naif 'volatilitas 5 hari ke belakang' identik dengan Y_(t-5),Implementasikan sebagai baseline resmi (persistensi),Tahap 4
+D04,Jendela label tumpang tindih 5 hari,Purge gap >= 5 baris antara blok latih dan validasi pada semua pemisahan,"Tahap 3, Tahap 4"
+D05,"USDIDR: 2 salah desimal (A), 31 nilai macet 9,612.45 (B), 19 bad tick (C)","A: x10; B: NaN lalu forward-fill (keduanya aturan kausal berbasis nilai); C: tidak dihapus, winsorize return pada kuantil data latih",Tahap 3
+D06,"OIL negatif (-37,63 pada 2020-04-20) adalah peristiwa nyata","Pertahankan; gunakan selisih/winsorize, bukan pct_change/log pada OIL",Tahap 3
+D07,IHSG 'tidak berubah' 6.9% hari (hari libur di-forward-fill); Y dan RV bias ke bawah pada pekan libur,Buat fitur jumlah return nol/hari libur; RV memperhitungkan return nol,Tahap 3
+D08,Y = 0 pada 16 baris (jendela datar),"Bila memakai log-target, tambahkan konstanta kecil; evaluasi pada skala asli","Tahap 3, Tahap 4"
+D09,CPI konstan sepanjang tahun (efektif tahunan) dan pada data uji berada di bawah minimum latih; US_rate berubah tiap awal bulan; BI_rate campuran,CPI berisiko jadi penanda tahun: uji sensitivitas dengan/tanpa CPI; pakai spread suku bunga dan hari sejak perubahan,"Tahap 3, Tahap 4"
+D10,"Y condong ke kanan (skewness 2,6), jauh lebih simetris pada skala log",Uji target log vs asli; laporkan RMSE/MAE pada skala asli + QLIKE,"Tahap 3, Tahap 4"
+D11,"Level GOLD, SP500, USDIDR, IHSG tidak stasioner dan 35-94% hari uji di luar rentang latih","Hanya fitur stasioner (return, rasio, z-score, selisih); tanpa level mentah",Tahap 3
+D12,"Periode uji bervolatilitas lebih tinggi dari data latih (AUC adversarial fitur volatilitas ~0,88)","Sertakan fold bertekanan (2018, 2020, 2022) pada walk-forward; laporkan kinerja per rezim","Tahap 4, Tahap 5"
+D13,Autokorelasi Y sebagian mekanis (jendela tumpang tindih),Bukti clustering diambil dari |r| dan r^2; inferensi korelasi memakai sub-sampel tiap 5 hari,"Tahap 3, PPT"
+D14,"Sinyal awal terkuat berasal dari volatilitas IHSG sendiri (RV22, semivarians, RV5) lalu VIX dan drawdown",Seleksi X1-X3 harus menambah informasi di luar RV IHSG (uji kontribusi marginal),Tahap 3
+D15,"9 hari kerja tanpa baris; penyelenggara menghitung Y pada kalender hari-kerja penuh (hari hilang = libur, return 0)","Reindex ke kalender hari-kerja penuh + forward-fill sebelum menghitung fitur rolling, agar selaras dengan Y tersembunyi 2025+",Tahap 3
+D16,5 label terakhir 2024 memuat hari tanpa baris; 3 di antaranya (jendela memuat 27 Des 2024 dan sesudahnya) tidak dapat direplikasi dari data yang diberikan,Pertahankan dengan flag; uji sensitivitas validasi tanpa baris ini,"Tahap 3, Tahap 4"

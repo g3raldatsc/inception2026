@@ -1,0 +1,26 @@
+{
+  "algo": "LightGBM",
+  "hp": {
+    "n_estimators": 550,
+    "learning_rate": 0.010936703470056664,
+    "num_leaves": 8,
+    "min_child_samples": 28,
+    "subsample": 0.6338302609412639,
+    "colsample_bytree": 0.6144366482411258,
+    "reg_lambda": 1.194655381897825,
+    "reg_alpha": 0.06585393560219197
+  },
+  "fset": "S3",
+  "target": "log",
+  "mono": "X+HAR",
+  "features": [
+    "log_rv5",
+    "log_rv22",
+    "log_rv66",
+    "vrp_z126",
+    "usd_z5",
+    "dd60_vol",
+    "ihsg_ret22"
+  ],
+  "P90_latih": 0.014865207739245084
+}
